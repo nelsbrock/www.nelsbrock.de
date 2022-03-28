@@ -1,0 +1,178 @@
+:root {
+	--bg-color: #1a1a24;
+	--text-color: #c9c9c9;
+	--deco-color: #c9c9c9;
+	--link-color: #c9c9c9;
+	--link-hover-color: #ffffff;
+}
+
+@font-face {
+	font-family: 'Inter';
+	font-display: swap;
+	src: local('Inter Regular'),
+		url('./fonts/inter/Inter-Regular.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Inter';
+	font-style: italic;
+	font-display: swap;
+	src: local('Inter Italic'),
+		url('./fonts/inter/Inter-Italic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Inter';
+	font-weight: bold;
+	font-display: swap;
+	src: local('Inter Bold'),
+		url('./fonts/inter/Inter-Bold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Metropolis';
+	font-display: swap;
+	src: local('Metropolis Regular'),
+		url('./fonts/metropolis/Metropolis-Regular.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Metropolis';
+	font-style: italic;
+	font-display: swap;
+	src: local('Metropolis RegularItalic'),
+		url('./fonts/metropolis/Metropolis-RegularItalic.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Metropolis';
+	font-weight: bold;
+	font-display: swap;
+	src: local('Metropolis Bold'),
+		url('./fonts/metropolis/Metropolis-Bold.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Font Awesome 6 Free Solid';
+	font-weight: 900;
+	font-display: block;
+	src: url('./fonts/fontawesome/fa-solid-900.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'Font Awesome 6 Free Brands';
+	font-weight: 400;
+	font-display: block;
+	src: url('./fonts/fontawesome/fa-brands-400.woff2') format('woff2');
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;	
+	}
+	100% {
+		opacity: 1;
+	}	
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	color: var(--text-color);
+	background-color: var(--bg-color);
+	white-space: nowrap;
+	font-family: Inter, Sans-Serif;
+	font-size: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: Metropolis, Sans-Serif;
+}
+
+main {
+	display: flex;
+	animation: fadeIn ease 1s;
+	animation-iteration-count: 1;
+}
+
+main > * {
+	margin: 1em;
+}
+
+.main-info {
+	text-align: right;
+}
+
+main > hr {
+	width: 0;
+	border: 4px solid var(--deco-color);
+	border-radius: 4px;
+}
+
+nav {
+	display: flex;
+	align-items: center;
+	line-height: 2;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+nav a {
+	color: var(--link-color);
+	text-decoration: none;
+	transition: color 0.375s;
+}
+
+nav a:hover {
+	color: var(--link-hover-color);
+}
+
+nav a::before {
+	display: inline-block;
+	min-width: 1.5em;
+	font-family: 'Font Awesome 6 Free Solid', 'Font Awesome 6 Free Brands';
+}
+
+/* ----- GITHUB LINK ----- */
+nav a.link-github:hover {
+	color: #00bfff;
+}
+
+nav a.link-github::before {
+	content: "\f09b";
+}
+
+/* ----- E-MAIL LINK ----- */
+nav a.link-email:hover {
+	color: #ff7700;
+}
+
+nav a.link-email::before {
+	content: "\f0e0";
+}
+
+/* ----- PGP KEY LINK ----- */
+nav a.link-pgp-key:hover {
+	color: #aa00ff;
+}
+
+nav a.link-pgp-key::before {
+	content: "\f084";
+}
