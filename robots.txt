@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /licenses.html
+
+
+#  _  _       _    _          _     _
+# | \| | ___ | |_ | |_       | |_  (_) ___  _ _
+# | .  |/ -_)|  _||  _|      |   \ | |/ -_)| '_|  _
+# |_|\_|\___| \__| \__|      |_||_||_|\___||_|   (_)
+#
+# Aber waren Sie schon mal in Baden-Württemberg?

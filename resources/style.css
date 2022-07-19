@@ -1,9 +1,15 @@
+/*
+ * Cascading Style Sheets für www.nelsbrock.de
+ * Copyright © 2022 Niklas Elsbrock
+ */
+
 :root {
 	--bg-color: #1a1a24;
 	--text-color: #c9c9c9;
 	--deco-color: #c9c9c9;
 	--link-color: #c9c9c9;
 	--link-hover-color: #ffffff;
+	--footer-text-color: #888888;
 }
 
 @font-face {
@@ -68,11 +74,69 @@
 
 @keyframes fadeIn {
 	0% {
-		opacity: 0;	
+		opacity: 0;
 	}
 	100% {
 		opacity: 1;
-	}	
+	}
+}
+
+@keyframes moveFromLeft {
+	0% {
+		transform: translateX(-2rem);
+	}
+	100% {
+		transform: none;
+	}
+}
+
+@keyframes moveFromRight {
+	0% {
+		transform: translateX(2rem);
+	}
+	100% {
+		transform: none;
+	}
+}
+
+@keyframes moveFromTop {
+	0% {
+		transform: translateY(-2rem);
+	}
+	100% {
+		transform: none;
+	}
+}
+
+@keyframes moveFromBottom {
+	0% {
+		transform: translateY(2rem);
+	}
+	100% {
+		transform: none;
+	}
+}
+
+@keyframes enlargeX {
+	0% {
+		transform: scaleX(0.5);
+	}
+	100% {
+		transform: none;
+	}
+}
+
+@keyframes enlargeY {
+	0% {
+		transform: scaleY(0.5);
+	}
+	100% {
+		transform: none;
+	}
+}
+
+html {
+	font-size: 20px;
 }
 
 html,
@@ -88,9 +152,7 @@ body {
 	margin: 0;
 	color: var(--text-color);
 	background-color: var(--bg-color);
-	white-space: nowrap;
-	font-family: Inter, Sans-Serif;
-	font-size: 20px;
+	font-family: Inter, sans-serif;
 }
 
 h1,
@@ -99,80 +161,139 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: Metropolis, Sans-Serif;
+	font-family: Metropolis, sans-serif;
 }
 
-main {
-	display: flex;
-	animation: fadeIn ease 1s;
-	animation-iteration-count: 1;
-}
-
-main > * {
-	margin: 1em;
-}
-
-.main-info {
-	text-align: right;
-}
-
-main > hr {
-	width: 0;
+hr {
 	border: 4px solid var(--deco-color);
 	border-radius: 4px;
 }
 
-nav {
+main {
+	animation: fadeIn ease 1s;
+	animation-iteration-count: 1;
+}
+
+.card {
+	display: flex;
+}
+
+.card > * {
+	margin: 0.5rem 1rem;
+}
+
+.card .main-info {
+	text-align: right;
+	animation: moveFromLeft ease 1s;
+	animation-iteration-count: 1;
+}
+
+.card hr {
+	animation: enlargeY ease 1s;
+	animation-iteration-count: 1;
+}
+
+.card nav {
 	display: flex;
 	align-items: center;
 	line-height: 2;
+	animation: moveFromRight ease 1s;
+	animation-iteration-count: 1;
 }
 
-nav ul {
+.card nav ul {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
 
-nav a {
+.card nav a {
 	color: var(--link-color);
 	text-decoration: none;
-	transition: color 0.375s;
+	transition: color 0.25s;
 }
 
-nav a:hover {
+.card nav a:hover {
 	color: var(--link-hover-color);
 }
 
-nav a::before {
+.card nav a::before {
 	display: inline-block;
-	min-width: 1.5em;
+	min-width: 1.5rem;
 	font-family: 'Font Awesome 6 Free Solid', 'Font Awesome 6 Free Brands';
+	margin: 0;
 }
 
 /* ----- GITHUB LINK ----- */
-nav a.link-github:hover {
+.card nav a.link-github:hover {
 	color: #00bfff;
 }
 
-nav a.link-github::before {
+.card nav a.link-github::before {
 	content: "\f09b";
 }
 
 /* ----- E-MAIL LINK ----- */
-nav a.link-email:hover {
+.card nav a.link-email:hover {
 	color: #ff7700;
 }
 
-nav a.link-email::before {
+.card nav a.link-email::before {
 	content: "\f0e0";
 }
 
 /* ----- PGP KEY LINK ----- */
-nav a.link-pgp-key:hover {
-	color: #aa00ff;
+.card nav a.link-pgp-key:hover {
+	color: #cf3fff;
 }
 
-nav a.link-pgp-key::before {
+.card nav a.link-pgp-key::before {
 	content: "\f084";
+}
+
+/* ------------------------ */
+
+footer {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	margin: 0.25rem;
+	font-size: 0.6rem;
+	color: var(--footer-text-color);
+}
+
+a {
+	color: inherit;
+	text-decoration: underline dotted;
+}
+
+a:hover {
+	text-decoration-style: solid;
+}
+
+a[data-icon]::before {
+	font-family: 'Font Awesome 6 Free Solid', 'Font Awesome 6 Free Brands';
+	font-style: normal;
+	font-weight: normal;
+	content: attr(data-icon) '\00A0';
+}
+
+@media (max-width: 800px) {
+	.card {
+		flex-direction: column;
+	}
+
+	.card .main-info {
+		text-align: center;
+		animation-name: moveFromTop;
+	}
+
+	.card hr {
+		animation-name: enlargeX;
+	}
+
+	.card nav {
+		justify-content: center;
+		animation-name: moveFromBottom;
+	}
 }
