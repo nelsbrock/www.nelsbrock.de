@@ -1,10 +1,10 @@
 /*
  * Cascading Style Sheets für www.nelsbrock.de
- * Copyright © 2022 Niklas Elsbrock
+ * Copyright © 2025 Niklas Elsbrock
  */
 
 :root {
-	--bg-color: #1a1a24;
+	--bg-color: #0e180e;
 	--text-color: #c9c9c9;
 	--deco-color: #c9c9c9;
 	--link-color: #c9c9c9;
@@ -208,6 +208,8 @@ main {
 }
 
 .card nav a {
+	display: inline-block;
+	width: 100%;
 	color: var(--link-color);
 	text-decoration: none;
 	transition: color 0.25s;
@@ -219,9 +221,30 @@ main {
 
 .card nav a::before {
 	display: inline-block;
-	min-width: 1.5rem;
+	min-width: 1.5em;
 	font-family: 'Font Awesome 6 Free Solid', 'Font Awesome 6 Free Brands';
 	margin: 0;
+}
+
+.card nav li::after {
+	width: 0;
+	float: right;
+	display: inline-block;
+	content: "\f100";
+	font-family: 'Font Awesome 6 Free Solid';
+	opacity: 0;
+	translate: 4em;
+}
+
+.card nav li:hover::after {
+	opacity: 1;
+	translate: 1em;
+	transition: all 0.5s ease-out;
+}
+
+.card nav li:active::after {
+	transform: scale(0.5, 1);
+	transition: all 0.05s linear;
 }
 
 /* ----- GITHUB LINK ----- */
