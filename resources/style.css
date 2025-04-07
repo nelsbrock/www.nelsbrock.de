@@ -184,10 +184,7 @@ main {
 
 .card {
 	display: flex;
-}
-
-.card > * {
-	margin: 0.5rem 1rem;
+	gap: 2.25rem;
 }
 
 .card .main-info {
@@ -197,6 +194,7 @@ main {
 }
 
 .card hr {
+	margin: 0;
 	animation: enlargeY ease 1s;
 	animation-iteration-count: 1;
 }
@@ -305,6 +303,10 @@ a[data-icon]::before {
 	.card .main-info {
 		text-align: center;
 		animation-name: moveFromTop;
+	}
+
+	.card .main-info p {
+		margin-bottom: 0;
 	}
 
 	.card hr {
