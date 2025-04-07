@@ -137,6 +137,7 @@
 
 html {
 	font-size: 20px;
+	scrollbar-width: none;
 }
 
 html,
@@ -172,6 +173,7 @@ hr {
 main {
 	animation: fadeIn ease 1s;
 	animation-iteration-count: 1;
+	margin: 2em;
 }
 
 .card {
@@ -229,7 +231,6 @@ main {
 .card nav li::after {
 	width: 0;
 	float: right;
-	display: inline-block;
 	content: "\f100";
 	font-family: 'Font Awesome 6 Free Solid';
 	opacity: 0;
@@ -279,8 +280,9 @@ main {
 footer {
 	position: absolute;
 	right: 0;
-	bottom: 0;
-	margin: 0.25rem;
+	top: 100%;
+	padding: 0.25rem;
+	text-align: right;
 	font-size: 0.6rem;
 	color: var(--footer-text-color);
 }
