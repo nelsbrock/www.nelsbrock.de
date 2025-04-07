@@ -4,12 +4,13 @@
  */
 
 :root {
-	--bg-color: #0e180e;
-	--text-color: #c9c9c9;
-	--deco-color: #c9c9c9;
-	--link-color: #c9c9c9;
-	--link-hover-color: #ffffff;
-	--footer-text-color: #888888;
+	--bg-color: hsl(120, 25%, 7%);
+	--text-color: hsl(42, 20%, 85%);
+	--deco-color: hsl(42, 20%, 85%);
+	--card-link-color: hsl(42, 20%, 85%);
+	--card-link-hover-color: hsl(0, 0%, 100%);
+	--footer-bg-color: hsl(20, 25%, 5%);
+	--footer-text-color: hsl(0, 0%, 75%);
 }
 
 @font-face {
@@ -136,24 +137,26 @@
 }
 
 html {
+	height: 100%;
 	font-size: 20px;
 	scrollbar-width: none;
+	scroll-snap-type: y proximity;
 }
 
-html,
 body {
-	width: 100%;
 	height: 100%;
-}
-
-body {
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	margin: 0;
 	color: var(--text-color);
 	background-color: var(--bg-color);
 	font-family: Inter, sans-serif;
+}
+
+.viewstretch {
+	min-height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	scroll-snap-align: start;
 }
 
 h1,
@@ -162,18 +165,21 @@ h3,
 h4,
 h5,
 h6 {
+	margin: 2rem 0 1rem 0;
 	font-family: Metropolis, sans-serif;
 }
 
 hr {
+	margin: 2rem 0;
 	border: 4px solid var(--deco-color);
 	border-radius: 4px;
 }
 
 main {
+	max-width: 40rem;
+	margin: 2rem;
 	animation: fadeIn ease 1s;
 	animation-iteration-count: 1;
-	margin: 2em;
 }
 
 .card {
@@ -212,13 +218,13 @@ main {
 .card nav a {
 	display: inline-block;
 	width: 100%;
-	color: var(--link-color);
+	color: var(--card-link-color);
 	text-decoration: none;
 	transition: color 0.25s;
 }
 
 .card nav a:hover {
-	color: var(--link-hover-color);
+	color: var(--card-link-hover-color);
 }
 
 .card nav a::before {
@@ -228,8 +234,25 @@ main {
 	margin: 0;
 }
 
+.card nav a.link-github::before {
+	content: "\f09b";
+}
+
+.card nav a.link-bluesky::before {
+	content: "\e671";
+}
+
+.card nav a.link-email::before {
+	content: "\f0e0";
+}
+
+.card nav a.link-pgp-key::before {
+	content: "\f084";
+}
+
 .card nav li::after {
 	width: 0;
+	color: var(--card-link-hover-color);
 	float: right;
 	content: "\f100";
 	font-family: 'Font Awesome 6 Free Solid';
@@ -248,43 +271,15 @@ main {
 	transition: all 0.05s linear;
 }
 
-/* ----- GITHUB LINK ----- */
-.card nav a.link-github:hover {
-	color: #00bfff;
-}
-
-.card nav a.link-github::before {
-	content: "\f09b";
-}
-
-/* ----- E-MAIL LINK ----- */
-.card nav a.link-email:hover {
-	color: #ff7700;
-}
-
-.card nav a.link-email::before {
-	content: "\f0e0";
-}
-
-/* ----- PGP KEY LINK ----- */
-.card nav a.link-pgp-key:hover {
-	color: #cf3fff;
-}
-
-.card nav a.link-pgp-key::before {
-	content: "\f084";
-}
-
-/* ------------------------ */
-
 footer {
-	position: absolute;
-	right: 0;
-	top: 100%;
-	padding: 0.25rem;
-	text-align: right;
-	font-size: 0.6rem;
+	width: 100%;
+	padding: 1rem;
+	text-align: center;
+	font-size: 0.75rem;
 	color: var(--footer-text-color);
+	border-top: 2px dashed var(--footer-text-color);
+	background-color: var(--footer-bg-color);
+	scroll-snap-align: end;
 }
 
 a {
