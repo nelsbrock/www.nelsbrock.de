@@ -1,16 +1,16 @@
 /*
  * Cascading Style Sheets für www.nelsbrock.de
- * Copyright © 2025 Niklas Elsbrock
+ * Copyright © 2026 Niklas Elsbrock
  */
 
 :root {
-	--bg-color: hsl(120, 25%, 7%);
-	--text-color: hsl(42, 20%, 85%);
-	--deco-color: hsl(42, 20%, 85%);
-	--card-link-color: hsl(42, 20%, 85%);
-	--card-link-hover-color: hsl(0, 0%, 100%);
-	--footer-bg-color: hsl(20, 25%, 5%);
-	--footer-text-color: hsl(0, 0%, 75%);
+	--text-color: hsl(0, 0%, 100%);
+	--deco-color: hsla(0, 0%, 100%, 0.4);
+	--card-link-color: var(--text-color);
+	--card-link-hover-color: var(--text-color);
+	--footer-bg-color: hsla(0, 0%, 0%, 0.6);
+	--footer-border-color: hsla(0, 0%, 0%, 0.25);
+	--footer-text-color: hsl(0, 0%, 100%);
 }
 
 @font-face {
@@ -147,7 +147,9 @@ body {
 	height: 100%;
 	margin: 0;
 	color: var(--text-color);
-	background-color: var(--bg-color);
+	background: linear-gradient(150deg, rgba(132, 58, 181, 1) 0%, rgba(207, 21, 21, 1) 80%, rgba(230, 126, 34, 1) 100%);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 	font-family: Inter, sans-serif;
 }
 
@@ -270,7 +272,7 @@ footer {
 	text-align: center;
 	font-size: 0.75rem;
 	color: var(--footer-text-color);
-	border-top: 2px dashed var(--footer-text-color);
+	border-top: 4px solid var(--footer-border-color);
 	background-color: var(--footer-bg-color);
 	scroll-snap-align: end;
 }
