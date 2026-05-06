@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 
-<!-- Copyright © 2026 Niklas Elsbrock -->
-
 <html lang="de">
 	<head>
 		<meta charset="UTF-8" />
-		<title>Niklas Elsbrock</title>
+		<title>{% block title %}{% endblock %}</title>
 		<meta name="description" content="Persönliche Website von Niklas Elsbrock." />
 		<meta name="copyright" content="Niklas Elsbrock" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,24 +12,11 @@
 
 	<body>
 		<div class="viewstretch">
-			<main class="card">
-				<div class="main-info">
-					<h1>Niklas&nbsp;Elsbrock</h1>
-					<p>Softwareentwickler und Informatikstudent</p>
-				</div>
-				<hr />
-				<nav>
-					<ul>
-						<li><a class="link-github" href="https://github.com/nelsbrock">GitHub</a></li>
-						<li><a class="link-email" href="mailto:mail@nelsbrock.de">E-Mail</a></li>
-						<li><a class="link-pgp-key" href="/niklas_elsbrock.asc">PGP</a></li>
-					</ul>
-				</nav>
-			</main>
+			{% block main %}{% endblock %}
 		</div>
 		<footer>
 			<p>
-				&copy; 2026 Niklas&nbsp;Elsbrock
+				&copy; {{ copyright_year }} Niklas&nbsp;Elsbrock
 				&middot; <a href="/privacy.html">Datenschutz</a>
 				&middot; <a href="/licenses.html">Open-Source-Lizenzen</a>
 			</p>
